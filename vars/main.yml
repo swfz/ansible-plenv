@@ -3,12 +3,13 @@ perl_build:
   url: https://github.com/tokuhirom/Perl-Build.git
   path: ~/.plenv/plugins/perl-build
 
-plenv_local: 5.18.2
+plenv_local: "{{ plenv_local_version | default('5.18.2') }}"
+plenv_global: "{{ plenv_global_version | default(plenv_local) }}"
 
 plenv:
   bin: ~/.plenv/bin/plenv
   url: https://github.com/tokuhirom/plenv.git
   user: "{{ app_user | default('vagrant') }}"
   local: "{{ plenv_local }}"
-  global: "{{ plenv_global | default(plenv_local)}}"
+  global: "{{ plenv_global }}"
 
