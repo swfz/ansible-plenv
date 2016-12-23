@@ -1,7 +1,5 @@
-- name: install dependencies package
-  yum: name={{ item }} state=installed
-  with_items:
-    - perl-ExtUtils-MakeMaker
+- include: "{{role_path}}/tasks/centos.yml"
+  when: ansible_os_family == 'CentOS'
 
 - name: exist plenv
   stat: path={{ plenv.bin }}

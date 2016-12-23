@@ -1,0 +1,5 @@
+- name: install dependencies package
+  yum: name={{ item }} state=installed
+  become: yes
+  with_items:
+    - perl-ExtUtils-MakeMaker
