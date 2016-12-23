@@ -60,7 +60,7 @@
   become_user: "{{ plenv.user }}"
   become: yes
   with_together:
-    - check_version.results
+    - '{{check_version.results}}'
     - [ global, local ]
 
 - name: exist cpanm
